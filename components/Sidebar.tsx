@@ -6,6 +6,7 @@ import { HiHome } from 'react-icons/Hi'
 import { BiSearch } from 'react-icons/Bi'
 import Box from './Box'
 import SidebarItem from './SidebarItem'
+import Library from './Library'
 
 interface SidebarProps {
   children: React.ReactNode
@@ -41,6 +42,9 @@ export default function Sidebar({ children }: SidebarProps) {
               <SidebarItem key={item.label} {...item} />
             ))}
           </div>
+        </Box>
+        <Box>
+          <Library />
         </Box>
       </div>
 
