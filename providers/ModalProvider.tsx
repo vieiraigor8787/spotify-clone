@@ -1,5 +1,6 @@
 'use client'
 
+import Modal from '@/components/Modal'
 import { useState, useEffect } from 'react'
 
 export default function ModalProvider() {
@@ -13,5 +14,9 @@ export default function ModalProvider() {
     return null
   }
 
-  return <>Modals</>
+  return (
+    <>
+      <Modal />
+    </>
+  )
 }
