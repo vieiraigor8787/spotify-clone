@@ -80,7 +80,7 @@ export const MyUserContextProvider = (props: Props) => {
 export const useUser = () => {
   const context = useContext(UserContext)
   if (context === undefined) {
-    throw new Error('use')
+    throw new Error('useUser deve ser usado com um MyUserContextProvider')
   }
 
   return context
