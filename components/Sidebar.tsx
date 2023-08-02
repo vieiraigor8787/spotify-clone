@@ -43,6 +43,8 @@ export default function Sidebar({ children }: SidebarProps) {
           </div>
         </Box>
       </div>
+
+      <main>{children}</main>
     </div>
   )
 }
