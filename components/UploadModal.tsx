@@ -15,12 +15,12 @@ export default function UploadModal() {
 
   return (
     <Modal
-      title="test"
-      description="test"
+      title="Adicione músicas"
+      description="Suba um arquivo mp3"
       isOpen={uploadModal.isOpen}
       onChange={onChange}
     >
-      content uploaded
+      Form
     </Modal>
   )
 }
