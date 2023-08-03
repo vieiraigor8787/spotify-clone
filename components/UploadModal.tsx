@@ -97,6 +97,8 @@ export default function UploadModal() {
       router.refresh()
       setIsLoading(false)
       toast.success('Música criada com sucesso!')
+      reset()
+      uploadModal.onClose()
     } catch (error) {
       toast.error('Ops! Algo deu errado')
     } finally {
