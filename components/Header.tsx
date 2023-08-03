@@ -5,8 +5,11 @@ import { twMerge } from 'tailwind-merge'
 import { RxCaretLeft, RxCaretRight } from 'react-icons/Rx'
 import { HiHome } from 'react-icons/Hi'
 import { BiSearch } from 'react-icons/Bi'
+import { FaUserAlt } from 'react-icons/Fa'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
 
 import useAuthModal from '@/hooks/useAuthModal'
+import { useUser } from '@/hooks/useUser'
 
 import Button from './Button'
 
@@ -19,7 +22,17 @@ export default function Header({ className, children }: headerProps) {
   const router = useRouter()
   const { onOpen } = useAuthModal()
 
-  const handleLogout = () => {}
+  const supabaseClient = useSupabaseClient()
+  const { user } = useUser()
+
+  const handleLogout = async () => {
+    const { error } = await supabaseClient.auth.signOut()
+    router.refresh()
+
+    if (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div
@@ -56,19 +69,33 @@ export default function Header({ className, children }: headerProps) {
         </div>
 
         <div className="flex justify-between items-center gap-x-4">
-          <>
-            <div>
-              <Button
-                onClick={onOpen}
-                className="bg-transparent text-neutral-300 font-medium"
-              >
-                Cadastrar
+          {user ? (
+            <div className="flex gap-x-4 items-center">
+              <Button onClick={handleLogout} className="bg-white px-6 py-2">
+                Sair
               </Button>
-              <Button onClick={onOpen} className="bg-white px-5 py-2">
-                Log in
+              <Button
+                onClick={() => router.push('/account')}
+                className="bg-white"
+              >
+                <FaUserAlt />
               </Button>
             </div>
-          </>
+          ) : (
+            <>
+              <div>
+                <Button
+                  onClick={onOpen}
+                  className="bg-transparent text-neutral-300 font-medium"
+                >
+                  Cadastrar
+                </Button>
+                <Button onClick={onOpen} className="bg-white px-5 py-2">
+                  Log in
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
