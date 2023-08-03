@@ -7,6 +7,7 @@ import { HiHome } from 'react-icons/Hi'
 import { BiSearch } from 'react-icons/Bi'
 import { FaUserAlt } from 'react-icons/Fa'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
+import { toast } from 'react-hot-toast/headless'
 
 import useAuthModal from '@/hooks/useAuthModal'
 import { useUser } from '@/hooks/useUser'
@@ -30,7 +31,9 @@ export default function Header({ className, children }: headerProps) {
     router.refresh()
 
     if (error) {
-      console.log(error)
+      toast.error(error.message)
+    } else {
+      toast.success('Usuário deslogado')
     }
   }
 
