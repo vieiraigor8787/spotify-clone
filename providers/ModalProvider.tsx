@@ -16,7 +16,14 @@ export default function ModalProvider() {
 
   return (
     <>
-      <Modal />
+      <Modal
+        title="test modal"
+        description="description"
+        onChange={() => {}}
+        isOpen
+      >
+        test child
+      </Modal>
     </>
   )
 }
