@@ -146,7 +146,9 @@ export default function UploadModal() {
             {...register('image', { required: true })}
           />
         </div>
-        <Button disabled={isLoading}>Criar</Button>
+        <Button disabled={isLoading} type="submit">
+          Criar
+        </Button>
       </form>
     </Modal>
   )
