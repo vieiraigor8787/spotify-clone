@@ -10,7 +10,7 @@ const getSongs = async (): Promise<Song[]> => {
   const { data, error } = await supaBase
     .from('songs')
     .select('*')
-    .order('creted_at', { ascending: true })
+    .order('created_at', { ascending: true })
 
   if (error) {
     console.log(error)
