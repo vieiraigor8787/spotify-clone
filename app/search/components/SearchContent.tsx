@@ -25,7 +25,7 @@ export default function SearchContent({ songs }: SearcContentProps) {
           <div className="flex-1">
             <MediaItem data={song} onClick={() => {}} />
           </div>
-          <LikeButton songId="" />
+          <LikeButton songId={song.id} />
         </div>
       ))}
     </div>
