@@ -9,7 +9,7 @@ interface PageCotentProps {
 }
 
 export default function PageContent({ songs }: PageCotentProps) {
-  if (songs.length !== 0) {
+  if (songs.length === 0) {
     return (
       <div className="mt-4 text-neutral-400">Nenhuma música disponível</div>
     )
