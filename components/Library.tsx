@@ -7,7 +7,13 @@ import useAuthModal from '@/hooks/useAuthModal'
 import useUploadModal from '@/hooks/useUploadModal'
 import { useUser } from '@/hooks/useUser'
 
-export default function Library() {
+import { Song } from '@/types'
+
+interface LibraryProps {
+  songs: Song[]
+}
+
+export default function Library({ songs }: LibraryProps) {
   const authModal = useAuthModal()
   const uploadModal = useUploadModal()
   const { user } = useUser()
@@ -34,7 +40,7 @@ export default function Library() {
         />
       </div>
 
-      <div className="flex flex-col gap-y-2 mt-4 px-3">Lista de musicas</div>
+      <div className="flex flex-col gap-y-2 mt-4 px-3"></div>
     </div>
   )
 }
