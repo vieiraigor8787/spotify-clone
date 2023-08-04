@@ -28,7 +28,7 @@ export default function SongItem({ data, onClick }: SongItemProps) {
 
       <div className="flex flex-col items-start w-full p-4 gap-y-4">
         <p className="font-semibold truncate w-full">{data.title}</p>
-        <p className="text-neutral-400 text-sm pb-4 w-full">by {data.author}</p>
+        <p className="text-neutral-400 text-sm pb-4 w-full">de {data.author}</p>
       </div>
 
       <div className="absolute bottom-[7.5rem] right-5">
