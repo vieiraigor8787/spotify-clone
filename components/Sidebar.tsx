@@ -8,11 +8,14 @@ import Box from './Box'
 import SidebarItem from './SidebarItem'
 import Library from './Library'
 
+import { Song } from '@/types'
+
 interface SidebarProps {
   children: React.ReactNode
+  songs: Song[]
 }
 
-export default function Sidebar({ children }: SidebarProps) {
+export default function Sidebar({ children, songs }: SidebarProps) {
   const pathname = usePathname()
 
   const routes = useMemo(
@@ -44,7 +47,7 @@ export default function Sidebar({ children }: SidebarProps) {
           </div>
         </Box>
         <Box>
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
 
