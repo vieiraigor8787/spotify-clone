@@ -31,7 +31,7 @@ export default function SongItem({ data, onClick }: SongItemProps) {
         <p className="text-neutral-400 text-sm pb-4 w-full">by {data.author}</p>
       </div>
 
-      <div className="absolute bottom-24 right-5">
+      <div className="absolute bottom-[7.5rem] right-5">
         <PlayButton />
       </div>
     </div>
