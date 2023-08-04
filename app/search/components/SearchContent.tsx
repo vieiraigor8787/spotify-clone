@@ -1,5 +1,7 @@
 'use client'
 
+import MediaItem from '@/components/MediaItem'
+
 import { Song } from '@/types'
 
 interface SearcContentProps {
@@ -20,7 +22,7 @@ export default function SearchContent({ songs }: SearcContentProps) {
       {songs.map((song) => (
         <div key={song.id} className="flex items-center gap-x-4 w-full">
           <div className="flex-1">
-            <MediaItem />
+            <MediaItem data={song} onClick={() => {}} />
           </div>
         </div>
       ))}
