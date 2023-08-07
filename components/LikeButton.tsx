@@ -45,7 +45,7 @@ export default function LikeButton({ songId }: LikeButtonProps) {
 
   const Icon = isLiked ? AiFillHeart : AiOutlineHeart
 
-  const handleClick = async () => {
+  const handleLike = async () => {
     //se nao está logado, abre o popup de autenticação
     if (!user) {
       return authModal.onOpen()
@@ -83,7 +83,10 @@ export default function LikeButton({ songId }: LikeButtonProps) {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button
+      className="cursor-pointer hover:opacity-75 transition"
+      onClick={handleLike}
+    >
       <Icon color={isLiked ? '#22c55e' : 'white'} size={25} />
     </button>
   )

@@ -8,9 +8,9 @@ import ToastProvider from '@/providers/ToasterProvider'
 import getSongsByUserId from '@/actions/getSongsByUserId'
 
 import Sidebar from '@/components/Sidebar'
+import Player from '@/components/Player'
 
 import './globals.css'
-import Player from '@/components/Player'
 
 const font = Figtree({ subsets: ['latin'] })
 
