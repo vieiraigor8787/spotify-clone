@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { useUser } from '@/hooks/useUser'
-
-import { Song } from '@/types'
-
+import useOnPlay from '@/hooks/useOnPlay'
 import MediaItem from '@/components/MediaItem'
 import LikeButton from '@/components/LikeButton'
+
+import { Song } from '@/types'
 
 interface LikedContentProps {
   songs: Song[]
@@ -17,6 +17,7 @@ interface LikedContentProps {
 export default function LikedContent({ songs }: LikedContentProps) {
   const router = useRouter()
   const { isLoading, user } = useUser()
+  const onPlay = useOnPlay(songs)
 
   //somente usuários logados podem ver a pagina de musicas curtidas
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function LikedContent({ songs }: LikedContentProps) {
       {songs.map((song) => (
         <div key={song.id} className="flex items-center gap-x-4 w-full">
           <div className="flex-1">
-            <MediaItem onClick={() => {}} data={song} />
+            <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
           </div>
           <LikeButton songId={song.id} />
         </div>
