@@ -40,7 +40,7 @@ export default function SubscribeModal({ products }: SubscribeModalProps) {
 
     if (subscription) {
       setPriceIdLoading(undefined)
-      return toast('Você já é Premium')
+      return toast('Você já é usuário Premium =)')
     }
 
     try {
@@ -70,7 +70,9 @@ export default function SubscribeModal({ products }: SubscribeModalProps) {
           return product.prices.map((price) => (
             <Button
               key={price.id}
-              onClick={() => {}}
+              onClick={() => {
+                handleCheckout(price)
+              }}
               disabled={isLoading || price.id === priceIdLoading}
               className="mb-4"
             >
@@ -80,6 +82,10 @@ export default function SubscribeModal({ products }: SubscribeModalProps) {
         })}
       </div>
     )
+  }
+
+  if (subscription) {
+    content = <div className="text-center">Você já é usuário Premium =)</div>
   }
 
   return (
