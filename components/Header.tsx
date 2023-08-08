@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast/headless'
 
 import useAuthModal from '@/hooks/useAuthModal'
 import { useUser } from '@/hooks/useUser'
+import usePlayer from '@/hooks/usePlayer'
 
 import Button from './Button'
 
@@ -20,6 +21,7 @@ interface headerProps {
 }
 
 export default function Header({ className, children }: headerProps) {
+  const player = usePlayer()
   const router = useRouter()
   const { onOpen } = useAuthModal()
 
@@ -28,6 +30,7 @@ export default function Header({ className, children }: headerProps) {
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut()
+    player.reset()
     router.refresh()
 
     if (error) {
