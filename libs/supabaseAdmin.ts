@@ -35,7 +35,7 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
     product_id: typeof price.product === 'string' ? price.product : '',
     active: price.active,
     currency: price.currency,
-    desciption: price.nickname ?? undefined,
+    description: price.nickname ?? undefined,
     type: price.type,
     unit_amount: price.unit_amount ?? undefined,
     interval: price.recurring?.interval,
@@ -98,7 +98,7 @@ const copyBillingDetailsToCustomer = async (
 
   if (!name || !phone || !address) return
 
-  await stripe.customers.update(customer, { name, phone, address })
+  await stripe.customers.update(customer, { name, phone })
   const { error } = await supabaseAdmin
     .from('users')
     .update({

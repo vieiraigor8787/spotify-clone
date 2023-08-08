@@ -32,7 +32,7 @@ export interface Price {
   id: string
   product_id?: string
   active?: boolean
-  desciption?: string
+  description?: string
   unit_amount?: number
   currency?: string
   type?: Stripe.Price.Type
