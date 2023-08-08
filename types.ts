@@ -28,6 +28,10 @@ export interface Product {
   metadata?: Stripe.Metadata
 }
 
+export interface ProductWithPrice extends Product {
+  prices?: Price[]
+}
+
 export interface Price {
   id: string
   product_id?: string
